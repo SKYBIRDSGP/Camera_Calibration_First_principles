@@ -44,18 +44,19 @@ for image in images:
         corners = corners.reshape(-1,2)
         image_point_coordinates.append(corners)
         global_point_coordinates.append(np.array(world_points))
-
         # print("Global Coordinates:\n")
         # print(global_point_coordinates)
         # print("Image Coordinates:\n")
         # print(image_point_coordinates)
-
         cv2.drawChessboardCorners(img,pattern_size, corners, ret)
         cv2.imshow("Corner detection", img)
         cv2.waitKey(200)
 
     else:
         print("Checkerboard not detected!!!")
+
+np.save("image_points.npy", image_point_coordinates) 
+np.save("world_points.npy", global_point_coordinates)
 
 homography_mtx = []
 
@@ -77,8 +78,10 @@ for i in range(len(image_point_coordinates)):
     H = H / H[2,2]
 
     homography_mtx.append(H)
-
     # print(f"Homography Matrix for image {i+1} is :\n", H)
+
+
+np.save("H.npy", homography_mtx)
 
 # Now, obtaining the Intinsic Matrix 
 def V_matrix(H, i, j):
@@ -127,6 +130,7 @@ L = np.linalg.cholesky(B)
 K = np.linalg.inv(L.T)
 
 K = K / K[2,2]
+np.save("K.npy", K)
 
 print("Intrinsic Matrix K :\n")
 print(K)

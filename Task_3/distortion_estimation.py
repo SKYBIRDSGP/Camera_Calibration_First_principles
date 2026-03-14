@@ -5,8 +5,6 @@ import numpy as np
 import glob
 import os
 
-import matplotlib.pyplot as plt
-
 pattern_size = (10,7)
 images = glob.glob("assets/*.jpg")
 images.sort(key=lambda x: int(os.path.basename(x).split('_')[1].split('.')[0]))
@@ -25,12 +23,13 @@ Z =np.zeros((num_images, num_points, 1))
 ones = np.ones((num_images, num_points, 1))
 
 world_mtx = np.concatenate((world_points, Z, ones), axis=2)
+np.save("World_mtx", world_mtx)
+print(world_mtx.shape[0])
 
 image_errors = []
 all_errors = []
 all_points = []
 
-# P = K @ M_ext[i]
 for i in range(num_images):
     img = cv2.imread(images[i])
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

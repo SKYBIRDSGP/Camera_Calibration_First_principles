@@ -78,7 +78,7 @@ def reprojection_error(params, projn_points, corner_points, K):
     
     return errors
     
-initial = [1,1]
+initial = [0,0]
 
 # using non-linear least square method to optimize our error
 result = least_squares(

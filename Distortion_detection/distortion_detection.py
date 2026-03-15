@@ -71,3 +71,22 @@ for i in range(num_images):
         print("Error detecting the image!!")
 
 cv2.destroyAllWindows()
+
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+mean_error = np.mean(image_errors)
+
+plt.figure()
+plt.plot(range(1, len(image_errors)+1), image_errors, marker='o', label="Image Error")
+
+plt.axhline(mean_error, linestyle='--', label=f"Mean Error = {mean_error:.3f} px")
+
+plt.xlabel("Image Number")
+plt.ylabel("Mean Reprojection Error (pixels)")
+plt.title("Reprojection Error vs Image")
+plt.grid(True)
+plt.legend()
+
+plt.savefig("reprojection_error_plot.png")

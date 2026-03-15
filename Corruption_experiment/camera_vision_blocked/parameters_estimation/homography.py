@@ -15,7 +15,7 @@ for i in range(7):
         points = (j * side , i * side)
         world_points.append(points)
 
-images = glob.glob("assets/*.jpg")
+images = glob.glob("assets_big_dent/*.jpg")
 images.sort(key=lambda x: int(os.path.basename(x).split('_')[1].split('.')[0]))
 
 def Matrix_A(world_coordinates, image_coordinates):
@@ -35,7 +35,7 @@ def Matrix_A(world_coordinates, image_coordinates):
 
 for image in images:
     img = cv2.imread(image)
-    img = cv2.GaussianBlur(img, (5, 5), 0)
+    blurred_image = cv2.GaussianBlur(img, (9, 9), 0)
     gs_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
     ret, corners = cv2.findChessboardCorners(gs_img, pattern_size, None)

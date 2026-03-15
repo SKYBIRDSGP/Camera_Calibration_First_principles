@@ -10,12 +10,15 @@ images = glob.glob("assets/*.jpg")
 images.sort(key=lambda x: int(os.path.basename(x).split('_')[1].split('.')[0]))
 
 # Loading the intrinsic and extrinsic matrices along with the coordinate points for images in world and image frame
-K = np.load("../Homography/K.npy")
-img_points = np.load("../Homography/image_points.npy")
-world_points = np.load("../Homography/world_points.npy")
+K = np.load("K.npy")
+img_points = np.load("image_points.npy")
+world_points = np.load("world_points.npy")
 M_ext = np.load("M_ext.npy")
 
-world_points = world_points.reshape(14, 70, 2)
+num_images = len(img_points)
+num_points = pattern_size[0] * pattern_size[1]
+
+world_points = world_points.reshape(num_images, num_points, 2)
 num_images = world_points.shape[0]
 num_points = world_points.shape[1]
 

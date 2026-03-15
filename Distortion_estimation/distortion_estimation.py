@@ -16,9 +16,9 @@ images = glob.glob("assets/*.jpg")
 images.sort(key=lambda x: int(os.path.basename(x).split('_')[1].split('.')[0]))
 
 # importing the intrinsics and the extrinsics initially along with the world points
-M_int = np.load("../Task_2/K.npy")
-M_ext = np.load("../Task_3/M_ext.npy")
-W_pts = np.load("../Task_3/World_mtx.npy")
+M_int = np.load("../Homography/K.npy")
+M_ext = np.load("../Distortion_detection/M_ext.npy")
+W_pts = np.load("../Distortion_detection/World_mtx.npy")
 
 num_imgs = W_pts.shape[0]
 

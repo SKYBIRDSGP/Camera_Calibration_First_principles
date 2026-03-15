@@ -3,9 +3,9 @@ import os
 import glob
 import numpy as np
 
-M_int = np.load("../Task_2/K.npy")
-D = np.load("../Task_4/D.npy")
-W_pts = np.load("../Task_3/World_mtx.npy")
+M_int = np.load("../parameters_estimation/K.npy")
+D = np.load("../parameters_estimation/D.npy")
+W_pts = np.load("../parameters_estimation/World_mtx.npy")
 D = np.array([D[0], D[1], 0, 0, 0], dtype=np.float32)
 
 rows = 7

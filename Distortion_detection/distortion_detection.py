@@ -11,8 +11,8 @@ images.sort(key=lambda x: int(os.path.basename(x).split('_')[1].split('.')[0]))
 
 # Loading the intrinsic and extrinsic matrices along with the coordinate points for images in world and image frame
 K = np.load("../Task_2/K.npy")
-img_points = np.load("../Task_2/image_points.npy")
-world_points = np.load("../Task_2/world_points.npy")
+img_points = np.load("../Homography/image_points.npy")
+world_points = np.load("../Homography/world_points.npy")
 M_ext = np.load("M_ext.npy")
 
 world_points = world_points.reshape(14, 70, 2)

@@ -15,8 +15,8 @@ Our primary objective is to determine the M_extrinsic
 """
 # Loading the K and H matrices 
 # as well as the coordinate points for the image and it's absolute coordinates
-K = np.load("../Task_2/K.npy")
-H = np.load("../Task_2/H.npy")
+K = np.load("../Homography/K.npy")
+H = np.load("../Homography/H.npy")
 
 # Using Zhang's method 
 K_inv = np.linalg.inv(K)

@@ -5,7 +5,7 @@ We will be implementing the entire camera calibration pipeline from the first pr
 The video for the cube overlay for calibration validation
 
 
-<video src="assets/calibration_validation.webm" controls width="700"></video>
+<video src="assets/cube.webm" controls width="700"></video>
 
 Video for Corruption experiments: For shuffled correspondences:
 
